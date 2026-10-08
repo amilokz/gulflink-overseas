@@ -9,15 +9,16 @@ export default function Header() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/', label: t('navHome') },
-    { href: '/jobs', label: t('navJobs') },
-    { href: '/track', label: t('navTrack') },
-    { href: '/fees', label: t('navFees') },
-    { href: '/admin', label: t('navAdmin') },
+    { href: '/jobs', label: t('navJobs'), anchor: false },
+    { href: '/#how', label: t('howTitle'), anchor: true },
+    { href: '/track', label: t('navTrack'), anchor: false },
+    { href: '/fees', label: t('navFees'), anchor: false },
+    { href: '/#faq', label: t('navFaq'), anchor: true },
+    { href: '/admin', label: t('navAdmin'), anchor: false },
   ];
 
   return (
-    <header className="sticky top-0 z-40">
+    <header className="sticky top-0 z-50">
       {/* Slim utility bar: sample-license trust pill + language toggle */}
       <div className="border-b border-white/10 bg-navy-950 text-navy-100">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-1.5 text-xs">
@@ -52,16 +53,17 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main nav */}
+      {/* Main glass nav */}
       <div
         className="text-white"
         style={{
-          background: 'linear-gradient(180deg, rgba(10,31,68,.96) 0%, rgba(10,31,68,.92) 100%)',
-          backdropFilter: 'blur(12px)',
-          boxShadow: '0 10px 30px -14px rgba(6,15,36,.7), inset 0 -1px 0 rgba(231,203,124,.18)',
+          background: 'linear-gradient(180deg, rgba(6,15,36,.88) 0%, rgba(10,31,68,.82) 100%)',
+          backdropFilter: 'blur(16px) saturate(1.3)',
+          WebkitBackdropFilter: 'blur(16px) saturate(1.3)',
+          boxShadow: '0 12px 34px -14px rgba(6,15,36,.75), inset 0 -1px 0 rgba(231,203,124,.22)',
         }}
       >
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-5 gap-y-2 px-4 py-3">
           <Link href="/" className="group flex items-center gap-3" aria-label={t('brandName')}>
             <span
               aria-hidden
@@ -74,15 +76,19 @@ export default function Header() {
               G
             </span>
             <span>
-              <span className="block font-extrabold leading-tight tracking-tight">{t('brandName')}</span>
+              <span className="block text-lg font-extrabold leading-tight tracking-tight text-white">
+                GulfLink <span className="gold-text">Overseas</span>
+              </span>
               <span className="block text-[11px] font-medium text-gold-300">
                 {t('licenseLabel')} {t('licenseValue')}
               </span>
             </span>
           </Link>
-          <nav className="ml-auto flex flex-wrap gap-1" aria-label="Main navigation">
+          <nav className="ml-auto flex flex-wrap items-center gap-1" aria-label="Main navigation">
             {links.map((l) => {
-              const active = pathname === l.href || (l.href !== '/' && pathname.startsWith(l.href));
+              const active =
+                !l.anchor &&
+                (pathname === l.href || (l.href !== '/' && pathname.startsWith(l.href)));
               return (
                 <Link
                   key={l.href}
@@ -98,7 +104,13 @@ export default function Header() {
                 </Link>
               );
             })}
+            <Link href="/jobs" className="btn-gold ml-2 hidden px-5 py-2.5 text-sm sm:inline-flex">
+              {t('ctaFindJobs')} <span aria-hidden>→</span>
+            </Link>
           </nav>
+          <Link href="/jobs" className="btn-gold ml-auto px-5 py-2.5 text-sm sm:hidden">
+            {t('ctaFindJobs')} <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
     </header>

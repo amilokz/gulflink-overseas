@@ -270,6 +270,154 @@ export const STRINGS: Record<string, Str> = {
     en: 'Voice not supported in this browser — text chat works fine.',
     ur: 'Is browser mein voice support nahi — text chat theek kaam karega.',
   },
+
+  // ---- landing (home v2) ----
+  navFaq: { en: 'FAQ', ur: 'FAQ' },
+  ctaFindJobs: { en: 'Find jobs', ur: 'Jobs talash karein' },
+  heroNewTitle: { en: 'Overseas jobs, without the doubt', ur: 'Overseas jobs, bina kisi shak ke' },
+  heroNewSub: {
+    en: "Agencies run on registers and WhatsApp and candidates don't know who to trust — GulfLink shows every job, every fee and your application stage, openly.",
+    ur: 'Agencies register aur WhatsApp par chalti hain aur candidates ko pata nahi hota kisi par aitmad karein — GulfLink har job, har fee aur aap ki application ka stage khullam-khulla dikhata hai.',
+  },
+  cardTrust1: { en: 'Fee receipt for every rupee', ur: 'Har rupay ki fee receipt' },
+  cardTrust2: { en: 'Never pay to a personal account', ur: 'Personal account mein kabhi payment na karein' },
+  kanbanCandidate: { en: 'Bilal A. — Driver', ur: 'Bilal A. — Driver' },
+  kanbanPipelineTag: { en: 'Sample case', ur: 'Sample case' },
+  statsOpenJobs: { en: 'open jobs', ur: 'open jobs' },
+  statsCountries: { en: 'countries', ur: 'countries' },
+  statsFeeFull: { en: '100% fee transparency', ur: '100% fee transparency' },
+
+  // trust strip
+  trustStripTitle: { en: 'Why candidates trust GulfLink', ur: 'Candidates GulfLink par aitmad kyun karte hain' },
+  tp1: { en: 'Sample license shown', ur: 'License sample mein dikhayi gayi' },
+  tp2: { en: 'No personal-account payments', ur: 'Personal account mein payment nahi' },
+  tp3: { en: 'Fee receipts', ur: 'Fee ki receipts' },
+  tp4: { en: 'Sample data', ur: 'Sample data' },
+
+  // features
+  featuresTitle: { en: 'Everything in one place', ur: 'Sab kuch aik hi jagah' },
+  featuresSub: {
+    en: 'One website for candidates, one CRM for the agency — fully transparent from job ad to departure.',
+    ur: 'Candidates ke liye aik website, agency ke liye aik CRM — job ad se rawangi tak poori shaffafiyat.',
+  },
+  f1T: { en: 'Verified job listings', ur: 'Verified job listings' },
+  f1D: {
+    en: 'Every job carries a permission number with full salary, hours, food, accommodation and contract details.',
+    ur: 'Har job mein permission number aur poori salary, duty hours, khana, rehaish aur contract ki tafseel hoti hai.',
+  },
+  f2T: { en: 'Transparent fee table', ur: 'Mukammal fee table' },
+  f2D: {
+    en: 'Every charge listed with its purpose — plus a printed receipt for every rupee you pay.',
+    ur: 'Har charge apne maqsad ke saath listed — aur har rupay ki printed receipt.',
+  },
+  f3T: { en: 'Application stage tracker', ur: 'Application stage tracker' },
+  f3D: {
+    en: 'Candidates check their exact stage any time with phone + CNIC. No more guessing.',
+    ur: 'Candidates phone + CNIC se kabhi bhi apna exact stage check kar sakte hain. Ab andaza lagane ki zaroorat nahi.',
+  },
+  f4T: { en: 'Document checklist', ur: 'Documents ki checklist' },
+  f4D: {
+    en: 'Passport, CNIC, photos, medical — see what is pending, uploaded or verified.',
+    ur: 'Passport, CNIC, photos, medical — dekhein kya pending, uploaded ya verified hai.',
+  },
+  f5T: { en: 'Employer demand board', ur: 'Employer demand board' },
+  f5D: {
+    en: 'Live view of each employer order: how many workers were requested vs how many are filled.',
+    ur: 'Har employer order ka live view: kitne workers chahiye thay, kitne fill ho gaye.',
+  },
+  f6T: { en: 'Departure reports', ur: 'Departure reports' },
+  f6D: {
+    en: 'Charts of departures by month, trade and country — for the agency to plan ahead.',
+    ur: 'Departures ke charts — mahine, trade aur country ke hisaab se, agency ki planning ke liye.',
+  },
+
+  // how it works (3 steps)
+  hs1T: { en: 'Browse jobs and apply with documents', ur: 'Jobs dekhein aur documents ke saath apply karein' },
+  hs1D: {
+    en: 'Pick a verified job from Saudi Arabia, UAE or Qatar and submit one simple form.',
+    ur: 'Saudi Arabia, UAE ya Qatar ki verified job chunein aur aik simple form jama karein.',
+  },
+  hs2T: { en: 'Track your stage any time', ur: 'Apna stage kabhi bhi track karein' },
+  hs2D: {
+    en: 'Enter your phone + last 4 CNIC digits — see your current stage and the next step.',
+    ur: 'Apna phone + CNIC ke aakhri 4 digits likhein — apna maujooda stage aur agla step dekhein.',
+  },
+  hs3T: { en: 'WhatsApp updates until departure', ur: 'Rawangi tak WhatsApp updates' },
+  hs3D: {
+    en: 'A simulated WhatsApp update goes out at every stage, all the way to departure.',
+    ur: 'Har stage par simulated WhatsApp update milti hai, rawangi tak.',
+  },
+  hsSub: {
+    en: 'Three simple steps — from job ad to boarding the flight.',
+    ur: 'Teen simple steps — job ad se flight tak.',
+  },
+
+  // demo CTA band
+  demoBandTitle: { en: 'See the full demo live', ur: 'Poori demo live dekhein' },
+  demoBandBody: {
+    en: 'Browse 9 sample jobs, apply in a minute, track a sample case in the CRM — everything runs on sample data.',
+    ur: '9 sample jobs dekhein, aik minute mein apply karein, CRM mein sample case track karein — sab kuch sample data par chalta hai.',
+  },
+  demoBandCta: { en: 'Open the live demo', ur: 'Live demo kholein' },
+
+  // testimonials
+  testiTitle: { en: 'Candidates placed abroad', ur: 'Bahar bheje gaye candidates' },
+  testiSub: { en: 'Fictional sample quotes written for this demo.', ur: 'Is demo ke liye likhe gaye fictional sample quotes.' },
+  testiTag: { en: 'Fictional sample', ur: 'Fictional sample' },
+  t1Q: {
+    en: '"My family tracked my case on the website every day. The fee receipt came before I paid a single rupee."',
+    ur: '"Mere ghar wale roz website par mera case track karte thay. Paisay dene se pehle fee ki receipt mil gayi thi."',
+  },
+  t1N: { en: 'Rashid K.', ur: 'Rashid K.' },
+  t1M: { en: 'Driver — Saudi Arabia (sample)', ur: 'Driver — Saudi Arabia (sample)' },
+  t2Q: {
+    en: '"From skill test to visa, every step came with a WhatsApp update. No confusion, no agent visits."',
+    ur: '"Skill test se visa tak, har step ki WhatsApp update aayi. Koi confusion nahi, agent ke chakar nahi."',
+  },
+  t2N: { en: 'Farhan M.', ur: 'Farhan M.' },
+  t2M: { en: 'Welder — Qatar (sample)', ur: 'Welder — Qatar (sample)' },
+  t3Q: {
+    en: '"I never paid into anyone\'s personal account. The receipt had the company stamp — that gave me confidence."',
+    ur: '"Maine kabhi kisi ke personal account mein payment nahi ki. Receipt par company ki stamp thi — isi se aitmad aaya."',
+  },
+  t3N: { en: 'Javed S.', ur: 'Javed S.' },
+  t3M: { en: 'Electrician — UAE (sample)', ur: 'Electrician — UAE (sample)' },
+
+  // FAQ
+  faqTitle: { en: 'Frequently asked questions', ur: 'Aam sawalat' },
+  faqSub: { en: 'Clear answers, no fine print.', ur: 'Seedhe jawab, koi chhupi shart nahi.' },
+  fq1: { en: 'Is the license real?', ur: 'Kya ye license asli hai?' },
+  fa1: {
+    en: 'No — every license and permission number on this demo is fictional sample data. A real agency would show its genuine license number here.',
+    ur: 'Nahi — is demo mein har license aur permission number fictional sample data hai. Asli agency yahan apna genuine license number dikhayegi.',
+  },
+  fq2: { en: 'Which countries and trades are covered?', ur: 'Kaun se countries aur trades cover hain?' },
+  fa2: {
+    en: 'Saudi Arabia, UAE and Qatar, across trades like drivers, electricians, welders, masons and more. The full list is on the jobs page.',
+    ur: 'Saudi Arabia, UAE aur Qatar — drivers, electricians, welders, masons jaise trades mein. Poori list jobs page par hai.',
+  },
+  fq3: { en: 'What fees do I pay?', ur: 'Mujhe kya fees deni hogi?' },
+  fa3: {
+    en: 'Only the fees listed on the fees page, each with its purpose — and you get a printed receipt for every payment. Never pay into a personal account.',
+    ur: 'Sirf wohi fees jo fees page par listed hain, har aik apne maqsad ke saath — aur har payment ki printed receipt milegi. Personal account mein kabhi payment na karein.',
+  },
+  fq4: { en: 'How do I track my application?', ur: 'Main apni application kaise track karoon?' },
+  fa4: {
+    en: 'Open the Track page and enter your phone number plus the last 4 digits of your CNIC. You will see your current stage and the next step.',
+    ur: 'Track page kholein aur apna phone number + CNIC ke aakhri 4 digits likhein. Aap ko apna maujooda stage aur agla step nazar aayega.',
+  },
+  fq5: { en: 'How do I get this for my agency?', ur: 'Main apni agency ke liye ye kaise banwaoon?' },
+  fa5: {
+    en: 'This demo was built by AKCLNT. Click "Build this for your business" below to start a conversation.',
+    ur: 'Ye demo AKCLNT ne banayi hai. Neeche "Build this for your business" par click kar ke baat shuru karein.',
+  },
+
+  // final CTA
+  finalTitle: { en: 'Ready to see every job, every fee, every stage?', ur: 'Har job, har fee, har stage dekhne ke liye tayyar?' },
+  finalBody: {
+    en: "This is a demo with fictional sample data — the real thing can be your agency's website.",
+    ur: 'Ye fictional sample data wali demo hai — asli cheez aap ki agency ki website ho sakti hai.',
+  },
 };
 
 interface LangCtx {
