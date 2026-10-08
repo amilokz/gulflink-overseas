@@ -59,20 +59,21 @@ function KanbanBoard() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-10">
-      <div className="pt-4">
-        <h1 className="text-2xl font-extrabold text-navy-900 sm:text-3xl">{t('kanbanTitle')}</h1>
-        <p className="mt-1 text-sm text-navy-700">{t('kanbanHint')}</p>
+    <div className="mx-auto max-w-7xl px-4 pb-12">
+      <div className="pt-6">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{t('navAdmin')}</p>
+        <h1 className="mt-1 text-2xl font-black tracking-tight text-navy-900 sm:text-3xl">{t('kanbanTitle')}</h1>
+        <p className="mt-1.5 max-w-2xl text-sm text-navy-600">{t('kanbanHint')}</p>
       </div>
 
       {sent && (
-        <div className="mt-4 max-w-xl" role="status">
+        <div className="mt-5 max-w-xl" role="status">
           <WhatsAppBubble key={sent.key} to={sent.to} text={sent.text} />
         </div>
       )}
 
-      <div className="mt-6 flex gap-4 overflow-x-auto pb-4" role="list" aria-label={t('kanbanTitle')}>
-        {STAGES.map((stage) => {
+      <div className="kanban-scroll mt-6 flex gap-4 overflow-x-auto pb-4" role="list" aria-label={t('kanbanTitle')}>
+        {STAGES.map((stage, si) => {
           const cards = candidates.filter((c) => c.stage === stage);
           return (
             <section
@@ -84,12 +85,26 @@ function KanbanBoard() {
               }}
               onDragLeave={() => setDragOver((d) => (d === stage ? null : d))}
               onDrop={(e) => onDrop(e, stage)}
-              className={`w-64 shrink-0 rounded-2xl bg-white p-3 shadow-sm ring-1 ring-navy-100 ${dragOver === stage ? 'drop-hint' : ''}`}
               aria-label={t(stageKey(stage))}
+              className={`w-72 shrink-0 rounded-2xl p-3 transition-all duration-200 ${
+                dragOver === stage ? 'drop-hint' : 'bg-white ring-1 ring-navy-100'
+              }`}
+              style={dragOver === stage ? undefined : { boxShadow: '0 14px 34px -24px rgba(10,31,68,.3)' }}
             >
-              <h2 className="flex items-center justify-between px-1 pb-2 font-bold text-navy-900">
-                <span>{t(stageKey(stage))}</span>
-                <span className="rounded-full bg-navy-50 px-2 py-0.5 text-xs font-bold text-navy-700">{cards.length}</span>
+              <h2 className="flex items-center justify-between px-1.5 pb-2.5">
+                <span className="flex items-center gap-2 text-sm font-extrabold text-navy-900">
+                  <span
+                    aria-hidden
+                    className="flex h-6 w-6 items-center justify-center rounded-lg text-[11px] font-black text-navy-950"
+                    style={{ background: 'linear-gradient(135deg, #e7cb7c, #c9a227)' }}
+                  >
+                    {si + 1}
+                  </span>
+                  {t(stageKey(stage))}
+                </span>
+                <span className="rounded-full bg-navy-900 px-2.5 py-0.5 text-xs font-bold text-gold-300">
+                  {cards.length}
+                </span>
               </h2>
               <div className="space-y-3">
                 {cards.map((c) => (
@@ -101,17 +116,18 @@ function KanbanBoard() {
                       e.currentTarget.classList.add('dragging');
                     }}
                     onDragEnd={(e) => e.currentTarget.classList.remove('dragging')}
-                    className="cursor-grab rounded-xl border border-navy-100 bg-navy-50 p-3 active:cursor-grabbing"
+                    className="cursor-grab rounded-xl border border-navy-100 bg-navy-50 p-3.5 transition-shadow hover:shadow-md active:cursor-grabbing"
+                    style={{ borderTop: '3px solid #c9a227' }}
                   >
-                    <p className="font-bold text-navy-900">{c.name}</p>
-                    <p className="text-xs text-navy-700">
+                    <p className="font-extrabold text-navy-900">{c.name}</p>
+                    <p className="mt-0.5 text-xs font-medium text-navy-700">
                       {c.trade} → {c.country}
                     </p>
-                    <p className="text-xs text-navy-600">{c.phone}</p>
-                    <div className="mt-2 flex items-center justify-between">
+                    <p className="text-xs text-navy-500">{c.phone}</p>
+                    <div className="mt-3 flex items-center justify-between">
                       <Link
                         href={`/admin/candidate?id=${encodeURIComponent(c.id)}`}
-                        className="rounded-md bg-navy-900 px-3 py-1 text-xs font-semibold text-white hover:bg-navy-800"
+                        className="rounded-lg bg-navy-900 px-3 py-1.5 text-xs font-bold text-white transition hover:bg-navy-700"
                       >
                         {t('viewCandidate')}
                       </Link>
@@ -120,7 +136,7 @@ function KanbanBoard() {
                           onClick={() => moveStep(c, -1)}
                           disabled={stageIndex(c.stage) === 0}
                           aria-label={t('moveLeft')}
-                          className="rounded-md bg-white px-2 py-1 text-sm font-bold text-navy-900 ring-1 ring-navy-200 disabled:opacity-30"
+                          className="rounded-lg bg-white px-2.5 py-1 text-sm font-bold text-navy-900 ring-1 ring-navy-200 transition hover:ring-gold-400 disabled:opacity-30"
                         >
                           ←
                         </button>
@@ -128,7 +144,7 @@ function KanbanBoard() {
                           onClick={() => moveStep(c, 1)}
                           disabled={stageIndex(c.stage) === STAGES.length - 1}
                           aria-label={t('moveRight')}
-                          className="rounded-md bg-white px-2 py-1 text-sm font-bold text-navy-900 ring-1 ring-navy-200 disabled:opacity-30"
+                          className="rounded-lg bg-white px-2.5 py-1 text-sm font-bold text-navy-900 ring-1 ring-navy-200 transition hover:ring-gold-400 disabled:opacity-30"
                         >
                           →
                         </button>
@@ -136,7 +152,11 @@ function KanbanBoard() {
                     </div>
                   </article>
                 ))}
-                {cards.length === 0 && <p className="px-1 py-4 text-center text-xs text-navy-400">—</p>}
+                {cards.length === 0 && (
+                  <p className="rounded-xl border border-dashed border-navy-200 px-1 py-6 text-center text-xs font-medium text-navy-400">
+                    —
+                  </p>
+                )}
               </div>
             </section>
           );

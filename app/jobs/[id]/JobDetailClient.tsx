@@ -73,27 +73,27 @@ export default function JobDetailClient({ job }: { job: Job }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const inputCls =
-    'w-full rounded-lg border border-navy-100 bg-white px-3 py-2.5 text-sm text-navy-900 outline-none focus:ring-2 focus:ring-gold-400';
-  const labelCls = 'block text-sm font-semibold text-navy-900 mb-1';
-
   if (done) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-12">
-        <div className="rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-navy-100">
-          <span aria-hidden className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-3xl">
+        <div className="card card-gold-top p-8 text-center sm:p-10">
+          <span
+            aria-hidden
+            className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-3xl text-white"
+            style={{ background: 'linear-gradient(135deg, #22c55e, #15803d)', boxShadow: '0 12px 24px -8px rgba(34,197,94,.6)' }}
+          >
             ✓
           </span>
-          <h1 className="mt-4 text-2xl font-extrabold text-navy-900">{t('successTitle')}</h1>
-          <p className="mt-3 text-navy-700">{t('successBody')}</p>
-          <p className="mt-4 text-sm text-navy-600">
+          <h1 className="mt-4 text-2xl font-black tracking-tight text-navy-900 sm:text-3xl">{t('successTitle')}</h1>
+          <p className="mx-auto mt-3 max-w-md text-navy-700">{t('successBody')}</p>
+          <p className="mt-5 inline-block rounded-xl bg-navy-50 px-4 py-2 text-sm text-navy-600 ring-1 ring-navy-100">
             {t('appIdLabel')}: <span className="font-mono font-bold text-navy-900">{done.id}</span>
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href="/track" className="rounded-lg bg-navy-900 px-6 py-3 font-semibold text-white hover:bg-navy-800">
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <Link href="/track" className="btn-gold px-6 py-3 text-sm">
               {t('trackNow')}
             </Link>
-            <Link href="/jobs" className="rounded-lg px-6 py-3 font-semibold text-navy-900 ring-1 ring-navy-200 hover:bg-navy-50">
+            <Link href="/jobs" className="btn-outline px-6 py-3 text-sm">
               {t('backToJobs')}
             </Link>
           </div>
@@ -103,78 +103,89 @@ export default function JobDetailClient({ job }: { job: Job }) {
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
-      <Link href="/jobs" className="text-sm font-medium text-navy-700 hover:text-navy-900">
-        ← {t('backToJobs')}
+    <div className="mx-auto max-w-4xl px-4 py-10">
+      <Link href="/jobs" className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-600 transition hover:text-navy-900">
+        <span aria-hidden>←</span> {t('backToJobs')}
       </Link>
 
-      <div className="mt-4 rounded-2xl bg-navy-900 p-6 text-white sm:p-8">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-gold-500 px-3 py-1 text-xs font-bold text-navy-950">{job.country}</span>
-          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">{job.trade}</span>
+      <div className="panel-navy relative mt-4 overflow-hidden p-6 sm:p-8">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-30 blur-3xl"
+          style={{ background: 'radial-gradient(closest-side, #c9a227, transparent)' }}
+        />
+        <div className="relative flex flex-wrap items-center gap-2">
+          <span className="badge-gold">{job.country}</span>
+          <span className="badge-glass">{job.trade}</span>
         </div>
-        <h1 className="mt-3 text-2xl font-extrabold sm:text-3xl">
+        <h1 className="relative mt-3 text-balance text-2xl font-black tracking-tight sm:text-4xl">
           {job.title} — {job.employer}
         </h1>
-        <p className="mt-2 max-w-2xl text-navy-100/90">{job.description}</p>
-        <p className="mt-4 text-3xl font-extrabold text-gold-300">
-          {job.currency} {job.salaryLocal.toLocaleString()}
-          <span className="text-base font-medium text-navy-100">
+        <p className="relative mt-2 max-w-2xl text-navy-100/85">{job.description}</p>
+        <p className="relative mt-5 text-3xl font-black sm:text-4xl">
+          <span className="gold-text">
+            {job.currency} {job.salaryLocal.toLocaleString()}
+          </span>
+          <span className="text-base font-semibold text-navy-100/80">
             {' '}
             ≈ PKR {job.salaryPkr.toLocaleString()}
             {t('perMonth')}
           </span>
         </p>
-        <dl className="mt-5 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
+        <dl className="relative mt-6 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
           {[
             [t('dutyLabel'), job.dutyHours],
             [t('foodLabel'), job.food],
             [t('accomLabel'), job.accommodation],
             [t('contractLabel'), job.contractLength],
           ].map(([k, v]) => (
-            <div key={k as string} className="rounded-lg bg-white/5 p-3">
-              <dt className="text-navy-100/70">{k}</dt>
-              <dd className="mt-1 font-semibold">{v}</dd>
+            <div
+              key={k as string}
+              className="rounded-xl p-3"
+              style={{ background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)' }}
+            >
+              <dt className="text-xs text-navy-100/65">{k}</dt>
+              <dd className="mt-1 font-bold text-white">{v}</dd>
             </div>
           ))}
         </dl>
-        <p className="mt-4 text-[11px] text-navy-100/70">
+        <p className="relative mt-4 text-[11px] text-navy-100/60">
           {t('permNoLabel')} {job.permissionNo} {t('permSample')}
         </p>
       </div>
 
-      <form onSubmit={submit} className="mt-6 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy-100 sm:p-8">
-        <h2 className="text-xl font-bold text-navy-900">{t('applyTitle')}</h2>
-        <p className="mt-1 text-sm text-navy-700">{t('applySubtitle')}</p>
+      <form onSubmit={submit} className="card mt-6 p-6 sm:p-8">
+        <h2 className="text-xl font-extrabold tracking-tight text-navy-900 sm:text-2xl">{t('applyTitle')}</h2>
+        <p className="mt-1 text-sm text-navy-600">{t('applySubtitle')}</p>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <div>
-            <label className={labelCls} htmlFor="f-name">{t('nameLabel')}</label>
-            <input id="f-name" required value={form.name} onChange={set('name')} className={inputCls} />
+            <label className="label" htmlFor="f-name">{t('nameLabel')}</label>
+            <input id="f-name" required value={form.name} onChange={set('name')} className="input" autoComplete="name" />
           </div>
           <div>
-            <label className={labelCls} htmlFor="f-cnic">{t('cnicLabel')}</label>
-            <input id="f-cnic" required value={form.cnic} onChange={set('cnic')} inputMode="numeric" className={inputCls} placeholder="37405-1234567-8" />
+            <label className="label" htmlFor="f-cnic">{t('cnicLabel')}</label>
+            <input id="f-cnic" required value={form.cnic} onChange={set('cnic')} inputMode="numeric" className="input" placeholder="37405-1234567-8" />
           </div>
           <div>
-            <label className={labelCls} htmlFor="f-phone">{t('phoneLabel')}</label>
-            <input id="f-phone" required value={form.phone} onChange={set('phone')} inputMode="tel" className={inputCls} placeholder="0300-1234567" />
+            <label className="label" htmlFor="f-phone">{t('phoneLabel')}</label>
+            <input id="f-phone" required value={form.phone} onChange={set('phone')} inputMode="tel" className="input" placeholder="0300-1234567" autoComplete="tel" />
           </div>
           <div>
-            <label className={labelCls} htmlFor="f-trade">{t('tradeLabel')}</label>
-            <select id="f-trade" value={form.trade} onChange={set('trade')} className={inputCls}>
+            <label className="label" htmlFor="f-trade">{t('tradeLabel')}</label>
+            <select id="f-trade" value={form.trade} onChange={set('trade')} className="input">
               {['Electrician', 'Driver', 'Plumber', 'Welder', 'Mason', 'Cook'].map((tr) => (
                 <option key={tr} value={tr}>{tr}</option>
               ))}
             </select>
           </div>
           <div>
-            <label className={labelCls} htmlFor="f-exp">{t('expLabel')}</label>
-            <input id="f-exp" value={form.experience} onChange={set('experience')} inputMode="numeric" className={inputCls} />
+            <label className="label" htmlFor="f-exp">{t('expLabel')}</label>
+            <input id="f-exp" value={form.experience} onChange={set('experience')} inputMode="numeric" className="input" />
           </div>
           <div>
-            <label className={labelCls} htmlFor="f-skill">{t('skillTestLabel')}</label>
-            <select id="f-skill" value={form.skillTest} onChange={set('skillTest')} className={inputCls}>
+            <label className="label" htmlFor="f-skill">{t('skillTestLabel')}</label>
+            <select id="f-skill" value={form.skillTest} onChange={set('skillTest')} className="input">
               <option value="Not taken">{t('skillNotTaken')}</option>
               <option value="Scheduled">{t('skillScheduled')}</option>
               <option value="Passed">{t('skillPassed')}</option>
@@ -182,13 +193,18 @@ export default function JobDetailClient({ job }: { job: Job }) {
             </select>
           </div>
           <fieldset className="sm:col-span-2">
-            <legend className={labelCls}>{t('passportLabel')}</legend>
-            <div className="flex gap-4 text-sm">
+            <legend className="label">{t('passportLabel')}</legend>
+            <div className="flex gap-3 text-sm">
               {[
                 ['yes', t('yes')],
                 ['no', t('no')],
               ].map(([v, label]) => (
-                <label key={v} className="flex items-center gap-2">
+                <label
+                  key={v}
+                  className={`flex cursor-pointer items-center gap-2 rounded-xl px-4 py-2.5 ring-1 transition ${
+                    form.passport === v ? 'bg-gold-100 font-bold text-navy-900 ring-gold-500/60' : 'bg-white text-navy-700 ring-navy-200 hover:ring-gold-400'
+                  }`}
+                >
                   <input type="radio" name="passport" value={v} checked={form.passport === v} onChange={set('passport')} className="accent-[#c9a227]" />
                   {label}
                 </label>
@@ -197,16 +213,20 @@ export default function JobDetailClient({ job }: { job: Job }) {
           </fieldset>
         </div>
 
-        <div className="mt-6">
-          <h3 className="text-sm font-semibold text-navy-900">{t('docsLabel')}</h3>
+        <div className="mt-7">
+          <h3 className="text-sm font-bold text-navy-900">{t('docsLabel')}</h3>
           <p className="mt-1 text-xs text-navy-600">{t('docsHint')}</p>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             {DOC_FIELDS.map((d) => (
-              <label key={d.key} className="flex items-center justify-between gap-2 rounded-lg border border-navy-100 bg-navy-50 px-3 py-2.5 text-sm">
-                <span className="text-navy-900">{t(d.labelKey)}</span>
+              <label key={d.key} className="flex cursor-pointer items-center justify-between gap-2 rounded-xl border border-navy-200 bg-navy-50 px-3.5 py-3 text-sm transition hover:border-gold-400 hover:bg-gold-50">
+                <span className="font-medium text-navy-900">{t(d.labelKey)}</span>
                 <span className="flex items-center gap-2">
-                  {files[d.key] && <span className="max-w-[120px] truncate text-[11px] text-green-700">{files[d.key]} ✓ {t('fileSaved')}</span>}
-                  <span className="cursor-pointer rounded-md bg-navy-900 px-3 py-1.5 text-xs font-semibold text-white">
+                  {files[d.key] && (
+                    <span className="max-w-[130px] truncate text-[11px] font-semibold text-green-700">
+                      {files[d.key]} ✓ {t('fileSaved')}
+                    </span>
+                  )}
+                  <span className="rounded-lg bg-navy-900 px-3.5 py-1.5 text-xs font-bold text-white transition hover:bg-navy-700">
                     {t('chooseFile')}
                     <input type="file" className="hidden" onChange={onFile(d.key)} />
                   </span>
@@ -216,10 +236,7 @@ export default function JobDetailClient({ job }: { job: Job }) {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="mt-8 w-full rounded-lg bg-gold-500 px-6 py-3.5 font-bold text-navy-950 shadow hover:bg-gold-400 sm:w-auto"
-        >
+        <button type="submit" className="btn-gold mt-8 w-full px-6 py-3.5 text-base sm:w-auto sm:px-10">
           {t('submitApplication')}
         </button>
       </form>

@@ -156,29 +156,38 @@ export default function Assistant() {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2">
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="w-[320px] max-w-[calc(100vw-2.5rem)] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-navy-900/10">
-          <div className="bg-navy-900 px-4 py-3 text-white">
-            <p className="font-semibold">{t('asstTitle')}</p>
-            <p className="text-[11px] text-gold-300">{t('aiSimLabel')}</p>
+        <div
+          className="w-[330px] max-w-[calc(100vw-2.5rem)] overflow-hidden rounded-2xl bg-white"
+          style={{ boxShadow: '0 32px 70px -20px rgba(6,15,36,.55)', border: '1px solid rgba(10,31,68,.1)' }}
+        >
+          <div className="px-4 py-3.5 text-white" style={{ background: 'linear-gradient(135deg, #0a1f44 0%, #173a68 100%)' }}>
+            <p className="font-extrabold tracking-tight">{t('asstTitle')}</p>
+            <p className="mt-0.5 inline-flex items-center gap-1.5 rounded-full bg-gold-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-gold-300 ring-1 ring-gold-500/40">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold-400 pulse-soft" />
+              {t('aiSimLabel')}
+            </p>
           </div>
-          <div className="h-72 overflow-y-auto bg-navy-50 px-3 py-3 space-y-2" role="log" aria-live="polite">
+          <div className="h-72 space-y-2.5 overflow-y-auto bg-navy-50 px-3.5 py-4" role="log" aria-live="polite">
             {msgs.map((m, i) => (
               <div
                 key={i}
-                className={`max-w-[85%] rounded-xl px-3 py-2 text-sm ${
-                  m.from === 'bot' ? 'bg-white text-navy-900 shadow-sm' : 'ml-auto bg-navy-900 text-white'
+                className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+                  m.from === 'bot'
+                    ? 'rounded-tl-md bg-white text-navy-900 shadow-sm ring-1 ring-navy-100'
+                    : 'ml-auto rounded-tr-md text-white shadow-sm'
                 }`}
+                style={m.from === 'user' ? { background: 'linear-gradient(135deg, #10294f, #1f4d88)' } : undefined}
               >
                 {m.text}
               </div>
             ))}
             <div ref={bottomRef} />
           </div>
-          {voiceNote && <p className="bg-gold-100 px-3 py-1 text-[11px] text-navy-900">{voiceNote}</p>}
+          {voiceNote && <p className="bg-gold-100 px-3.5 py-1.5 text-[11px] font-medium text-navy-900">{voiceNote}</p>}
           <form
-            className="flex items-center gap-2 border-t border-navy-100 p-2"
+            className="flex items-center gap-2 border-t border-navy-100 bg-white p-2.5"
             onSubmit={(e) => {
               e.preventDefault();
               send(input);
@@ -188,7 +197,11 @@ export default function Assistant() {
               type="button"
               onClick={listen}
               aria-label={t('listenBtn')}
-              className={`rounded-full p-2 ${listening ? 'bg-red-500 text-white animate-pulse' : 'bg-navy-100 text-navy-900 hover:bg-gold-200'}`}
+              className={`rounded-full p-2.5 transition ${
+                listening
+                  ? 'animate-pulse bg-red-500 text-white'
+                  : 'bg-navy-100 text-navy-900 hover:bg-gold-200'
+              }`}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4zm6-4a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.94V22h2v-3.06A8 8 0 0 0 20 11h-2z" />
@@ -198,12 +211,14 @@ export default function Assistant() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={listening ? t('listening') : t('asstPlaceholder')}
-              className="min-w-0 flex-1 rounded-full border border-navy-100 bg-navy-50 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-gold-400"
+              className="input min-w-0 flex-1 !rounded-full"
               aria-label={t('asstTitle')}
             />
             <button
               type="submit"
-              className="rounded-full bg-gold-500 px-4 py-2 text-sm font-semibold text-navy-950 hover:bg-gold-400"
+              aria-label="Send"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg font-bold text-navy-950 transition hover:brightness-105 active:scale-95"
+              style={{ background: 'linear-gradient(135deg, #e7cb7c, #c9a227)', boxShadow: '0 8px 18px -8px rgba(201,162,39,.9)' }}
             >
               →
             </button>
@@ -213,9 +228,16 @@ export default function Assistant() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={t('asstTitle')}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-navy-900 text-gold-300 shadow-xl ring-2 ring-gold-500 hover:bg-navy-800"
+        aria-expanded={open}
+        className="flex items-center justify-center rounded-full text-gold-300 transition-all duration-200 hover:scale-105 active:scale-95"
+        style={{
+          height: 60,
+          width: 60,
+          background: 'linear-gradient(135deg, #10294f 0%, #0a1f44 100%)',
+          boxShadow: '0 18px 38px -12px rgba(6,15,36,.7), 0 0 0 2px rgba(201,162,39,.55), inset 0 1px 0 rgba(255,255,255,.15)',
+        }}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
           <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.4 0-2.8-.3-4-.9L3 20l1-5.2a8.4 8.4 0 0 1-1-4 8.5 8.5 0 0 1 8.5-8.5h1A8.5 8.5 0 0 1 21 11.5zM8 12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
         </svg>
       </button>

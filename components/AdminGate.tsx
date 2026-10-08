@@ -28,16 +28,22 @@ export default function AdminGate({ children }: { children: React.ReactNode }) {
   if (!admin) {
     return (
       <div className="mx-auto max-w-md px-4 py-16">
-        <div className="rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-navy-100">
-          <span aria-hidden className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-navy-900 text-gold-300 text-2xl">🔒</span>
-          <h1 className="mt-4 text-2xl font-extrabold text-navy-900">{t('loginTitle')}</h1>
-          <p className="mt-2 text-sm text-navy-700">{t('loginBody')}</p>
+        <div className="card card-gold-top p-8 text-center sm:p-10">
+          <span
+            aria-hidden
+            className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl text-3xl"
+            style={{ background: 'linear-gradient(135deg, #0a1f44, #173a68)', boxShadow: '0 14px 28px -12px rgba(10,31,68,.7)' }}
+          >
+            🔒
+          </span>
+          <h1 className="mt-5 text-2xl font-black tracking-tight text-navy-900">{t('loginTitle')}</h1>
+          <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-navy-600">{t('loginBody')}</p>
           <button
             onClick={() => {
               loginAdmin();
               setAdmin(true);
             }}
-            className="mt-6 w-full rounded-lg bg-gold-500 px-6 py-3 font-bold text-navy-950 hover:bg-gold-400"
+            className="btn-gold mt-7 w-full px-6 py-3.5"
           >
             {t('loginBtn')}
           </button>
@@ -49,7 +55,7 @@ export default function AdminGate({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 pt-6">
-        <nav className="flex flex-wrap gap-1" aria-label="Admin">
+        <nav className="flex flex-wrap gap-1.5 rounded-2xl bg-white p-1.5 ring-1 ring-navy-100" style={{ boxShadow: '0 10px 26px -20px rgba(10,31,68,.35)' }} aria-label="Admin">
           {[
             { href: '/admin', label: t('kanbanTitle') },
             { href: '/admin/employers', label: t('empTitle') },
@@ -60,8 +66,11 @@ export default function AdminGate({ children }: { children: React.ReactNode }) {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`rounded-lg px-4 py-2 text-sm font-semibold ${
-                  active ? 'bg-navy-900 text-white' : 'text-navy-700 ring-1 ring-navy-200 hover:bg-navy-50'
+                aria-current={active ? 'page' : undefined}
+                className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                  active
+                    ? 'bg-navy-900 font-bold text-gold-300 shadow-md'
+                    : 'text-navy-700 hover:bg-navy-50 hover:text-navy-900'
                 }`}
               >
                 {l.label}
@@ -70,19 +79,10 @@ export default function AdminGate({ children }: { children: React.ReactNode }) {
           })}
         </nav>
         <div className="flex gap-2">
-          <button
-            onClick={doReset}
-            className="rounded-lg px-4 py-2 text-sm font-semibold text-navy-700 ring-1 ring-navy-200 hover:bg-navy-50"
-          >
+          <button onClick={doReset} className="btn-outline px-4 py-2 text-sm">
             {t('resetDemo')}
           </button>
-          <button
-            onClick={() => {
-              logoutAdmin();
-              setAdmin(false);
-            }}
-            className="rounded-lg px-4 py-2 text-sm font-semibold text-red-700 ring-1 ring-red-200 hover:bg-red-50"
-          >
+          <button onClick={() => { logoutAdmin(); setAdmin(false); }} className="btn-danger-outline px-4 py-2 text-sm">
             {t('logoutBtn')}
           </button>
         </div>

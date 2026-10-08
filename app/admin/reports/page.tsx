@@ -25,9 +25,10 @@ function ReportsBody() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-12">
-      <div className="pt-4">
-        <h1 className="text-2xl font-extrabold text-navy-900 sm:text-3xl">{t('repTitle')}</h1>
-        <p className="mt-1 text-sm text-navy-700">{t('repSubtitle')}</p>
+      <div className="pt-6">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{t('navAdmin')}</p>
+        <h1 className="mt-1 text-2xl font-black tracking-tight text-navy-900 sm:text-3xl">{t('repTitle')}</h1>
+        <p className="mt-1.5 text-sm text-navy-600">{t('repSubtitle')}</p>
       </div>
       <ReportsCharts candidates={candidates} />
     </div>
