@@ -1,0 +1,365 @@
+[
+  {
+    "appliedDate": "2026-08-12",
+    "cnic": "3740501234321",
+    "country": "Saudi Arabia",
+    "documents": {
+      "cnic": "verified",
+      "medical": "uploaded",
+      "passport": "verified",
+      "photos": "verified",
+      "skillTestCert": "verified",
+      "visa": "pending"
+    },
+    "experience": "4 years",
+    "id": "cand-01",
+    "jobId": "job-saudi-electrician",
+    "name": "Imran Sheikh",
+    "notes": [
+      {
+        "text": "Medical clear. Visa file submitted to embassy.",
+        "ts": "2026-09-20"
+      }
+    ],
+    "passport": true,
+    "phone": "0300-1112222",
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-08-12",
+        "id": "R-1001",
+        "label": "Processing fee"
+      },
+      {
+        "amount": 9500,
+        "date": "2026-09-02",
+        "id": "R-1002",
+        "label": "Medical fee"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "visa",
+    "trade": "Electrician"
+  },
+  {
+    "appliedDate": "2026-09-05",
+    "cnic": "3520209876565",
+    "country": "UAE",
+    "documents": {
+      "cnic": "verified",
+      "medical": "pending",
+      "passport": "uploaded",
+      "photos": "pending",
+      "skillTestCert": "pending",
+      "visa": "pending"
+    },
+    "experience": "6 years",
+    "id": "cand-02",
+    "jobId": "job-uae-driver",
+    "name": "Nadeem Akhtar",
+    "notes": [
+      {
+        "text": "Shortlisted. Driving test scheduled next week.",
+        "ts": "2026-09-10"
+      }
+    ],
+    "passport": true,
+    "phone": "0301-3334444",
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-09-05",
+        "id": "R-1003",
+        "label": "Processing fee"
+      }
+    ],
+    "skillTest": "Scheduled",
+    "stage": "shortlisted",
+    "trade": "Driver"
+  },
+  {
+    "appliedDate": "2026-07-28",
+    "cnic": "3630301122878",
+    "country": "Qatar",
+    "documents": {
+      "cnic": "verified",
+      "medical": "uploaded",
+      "passport": "pending",
+      "photos": "verified",
+      "skillTestCert": "verified",
+      "visa": "pending"
+    },
+    "experience": "5 years",
+    "id": "cand-03",
+    "jobId": "job-qatar-welder",
+    "name": "Shahid Mehmood",
+    "notes": [
+      {
+        "text": "Passport application advised urgently.",
+        "ts": "2026-09-18"
+      }
+    ],
+    "passport": false,
+    "phone": "0302-5556666",
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-07-28",
+        "id": "R-1004",
+        "label": "Processing fee"
+      },
+      {
+        "amount": 5000,
+        "date": "2026-08-15",
+        "id": "R-1005",
+        "label": "Skill test fee"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "medical",
+    "trade": "Welder"
+  },
+  {
+    "appliedDate": "2026-05-10",
+    "cnic": "3740519988990",
+    "country": "UAE",
+    "departureDate": "2026-09-25",
+    "documents": {
+      "cnic": "verified",
+      "medical": "verified",
+      "passport": "verified",
+      "photos": "verified",
+      "skillTestCert": "verified",
+      "visa": "verified"
+    },
+    "experience": "8 years",
+    "id": "cand-04",
+    "jobId": "job-uae-mason",
+    "name": "Asif Raza",
+    "notes": [
+      {
+        "text": "Departed on PK-751. Flight confirmed.",
+        "ts": "2026-09-25"
+      }
+    ],
+    "passport": true,
+    "phone": "0303-7778888",
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-05-10",
+        "id": "R-1006",
+        "label": "Processing fee"
+      },
+      {
+        "amount": 7000,
+        "date": "2026-09-15",
+        "id": "R-1007",
+        "label": "Protector registration"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "departed",
+    "trade": "Mason"
+  },
+  {
+    "appliedDate": "2026-10-02",
+    "cnic": "3520298765111",
+    "country": "Qatar",
+    "documents": {
+      "cnic": "pending",
+      "medical": "pending",
+      "passport": "uploaded",
+      "photos": "pending",
+      "skillTestCert": "pending",
+      "visa": "pending"
+    },
+    "experience": "7 years",
+    "id": "cand-05",
+    "jobId": "job-qatar-cook",
+    "name": "Tariq Aziz",
+    "notes": [],
+    "passport": true,
+    "phone": "0304-9990000",
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-10-02",
+        "id": "R-1008",
+        "label": "Processing fee"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "applied",
+    "trade": "Cook"
+  },
+  {
+    "appliedDate": "2026-07-01",
+    "cnic": "3630344556772",
+    "country": "Qatar",
+    "documents": {
+      "cnic": "verified",
+      "medical": "verified",
+      "passport": "verified",
+      "photos": "verified",
+      "skillTestCert": "verified",
+      "visa": "verified"
+    },
+    "experience": "3 years",
+    "id": "cand-06",
+    "jobId": "job-qatar-plumber",
+    "name": "Bilal Ahmed",
+    "notes": [
+      {
+        "text": "Protector stamp done. Ticket next week.",
+        "ts": "2026-09-28"
+      }
+    ],
+    "passport": true,
+    "phone": "0305-1122334",
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-07-01",
+        "id": "R-1009",
+        "label": "Processing fee"
+      },
+      {
+        "amount": 7000,
+        "date": "2026-09-28",
+        "id": "R-1010",
+        "label": "Protector registration"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "protector",
+    "trade": "Plumber"
+  },
+  {
+    "appliedDate": "2026-09-15",
+    "cnic": "3740522233773",
+    "country": "Saudi Arabia",
+    "documents": {
+      "cnic": "uploaded",
+      "medical": "pending",
+      "passport": "pending",
+      "photos": "pending",
+      "skillTestCert": "pending",
+      "visa": "pending"
+    },
+    "experience": "2 years",
+    "id": "cand-07",
+    "jobId": "job-saudi-electrician",
+    "name": "Farhan Ali",
+    "notes": [],
+    "passport": false,
+    "phone": "0306-4455667",
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-09-15",
+        "id": "R-1011",
+        "label": "Processing fee"
+      }
+    ],
+    "skillTest": "Not taken",
+    "stage": "skill-test",
+    "trade": "Electrician"
+  },
+  {
+    "experience": "5 years",
+    "documents": {
+      "cnic": "verified",
+      "medical": "verified",
+      "passport": "verified",
+      "photos": "verified",
+      "skillTestCert": "verified",
+      "visa": "verified"
+    },
+    "notes": [],
+    "passport": true,
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-06-01",
+        "id": "R-1012",
+        "label": "Processing fee"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "departed",
+    "id": "cand-08",
+    "name": "Rashid Khan",
+    "phone": "0307-7788990",
+    "cnic": "3630377771001",
+    "trade": "Welder",
+    "country": "Saudi Arabia",
+    "jobId": "job-saudi-welder",
+    "appliedDate": "2026-06-05",
+    "departureDate": "2026-08-14"
+  },
+  {
+    "experience": "5 years",
+    "documents": {
+      "cnic": "verified",
+      "medical": "verified",
+      "passport": "verified",
+      "photos": "verified",
+      "skillTestCert": "verified",
+      "visa": "verified"
+    },
+    "notes": [],
+    "passport": true,
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-06-01",
+        "id": "R-1012",
+        "label": "Processing fee"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "departed",
+    "id": "cand-09",
+    "name": "Muhammad Tariq",
+    "phone": "0308-0011223",
+    "cnic": "3740533332002",
+    "trade": "Driver",
+    "country": "UAE",
+    "jobId": "job-uae-driver",
+    "appliedDate": "2026-05-20",
+    "departureDate": "2026-07-30"
+  },
+  {
+    "experience": "5 years",
+    "documents": {
+      "cnic": "verified",
+      "medical": "verified",
+      "passport": "verified",
+      "photos": "verified",
+      "skillTestCert": "verified",
+      "visa": "verified"
+    },
+    "notes": [],
+    "passport": true,
+    "receipts": [
+      {
+        "amount": 25000,
+        "date": "2026-06-01",
+        "id": "R-1012",
+        "label": "Processing fee"
+      }
+    ],
+    "skillTest": "Passed",
+    "stage": "departed",
+    "id": "cand-10",
+    "name": "Ghulam Abbas",
+    "phone": "0309-3344556",
+    "cnic": "3520234567003",
+    "trade": "Cook",
+    "country": "Qatar",
+    "jobId": "job-qatar-cook",
+    "appliedDate": "2026-07-12",
+    "departureDate": "2026-09-05"
+  }
+]

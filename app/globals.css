@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #eef2f9;
+  color: #0a1f44;
+}
+
+/* Kanban card drag feedback */
+.dragging {
+  opacity: 0.45;
+}
+.drop-hint {
+  outline: 2px dashed #c9a227;
+  outline-offset: -2px;
+}
